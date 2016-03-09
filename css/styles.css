@@ -1,7 +1,8 @@
 *{margin: 0; padding: 0;}
-body{font-family: "Times New Roman", serif; font-size: 12px; line-height: 18px; width: 1360px; margin: 20px auto; font-weight: 400;}
+body{font-family: "mono", serif; font-size: 12px; line-height: 18px; width: 1360px; margin: 20px auto; font-weight: 400;}
 h1, h2, h3, p{margin-bottom: 5px;}
-h1, h2, h3{font-family: "Overpass", sans-serif;}
+h1 {font-family: "Overpass", sans-serif;} 
+h2, h3{font-family: "antikbold", sans-serif;}
 ul{list-style-type: none;}
 p{margin-bottom: 10px;}
 a{text-decoration: none;}
@@ -10,8 +11,8 @@ h1{ top:20px; text-transform: uppercase; font-size: 66px; line-height: 66px; pos
 #description{position: absolute; font-size: 1.8em; line-height: 1.4em; background-color: white; width: 440px; left: 680px; top: 360px; font-family: "Overpass", sans-serif; font-weight: 700;}
 footer{font-size: 1.2em; line-height: 1.4em; position: absolute; left: 680px; bottom: 20px; background-color: white; width: 440px; font-family: "Overpass", sans-serif; font-weight: 700;}
 
-h2{font-weight: 700; font-size: 24px; line-height: 24px;}
-h3{font-weight: 700; font-size: 1.2em; line-height: 1.2em;}
+h2{font-weight: 700; font-size: 24px; line-height: 34px;}
+h3{font-weight: 700; font-size: 1.2em; line-height: 1.6em;}
 section{position: absolute;}
 
 section img{width: 100%; }
