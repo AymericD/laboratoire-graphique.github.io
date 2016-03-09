@@ -1,7 +1,8 @@
 *{margin: 0; padding: 0;}
-body{font-family: "Times New Roman", serif; font-size: 12px; line-height: 18px; width: 1360px; margin: 20px auto; font-weight: 400;}
+body{font-family: "mono", serif; font-size: 12px; line-height: 18px; width: 1360px; margin: 20px auto; font-weight: 400;}
 h1, h2, h3, p{margin-bottom: 5px;}
-h1, h2, h3{font-family: "Overpass", sans-serif;}
+h1 {font-family: "Overpass", sans-serif;} 
+h2, h3{font-family: "antikbold", sans-serif;}
 ul{list-style-type: none;}
 p{margin-bottom: 10px;}
 a{text-decoration: none;}
