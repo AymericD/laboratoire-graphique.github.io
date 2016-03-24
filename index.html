@@ -9,29 +9,34 @@
     <script type="text/javascript">
     setTimeout(function(){
  window.location.reload(1);
-}, 30000);
+}, 60000);
     </script>
   </head>
   <body>
     <div id="page">
+      <header>
+        <h1 id="labo">—<br>Le labo<br>graphique<br>Penninghen<br>—</h1>
 
-      <h1 id="labo">—<br>Le labo<br>graphique<br>Penninghen<br>—</h1>
-
-      <div id="description">
-        <p>
-          Entre mars 2015 et mars 2016, le laboratoire graphique de l’<a href="#">ESAG Penninghen</a> a proposé aux élèves de DA4 et DA5 de développer une pensée pour libérer leur création graphique à l'heure des réseaux et des données.
+        <div id="description">
+          <p>
+            Entre mars 2015 et mars 2016, le laboratoire graphique de l’<a href="#">ESAG Penninghen</a> a proposé aux élèves de DA4 et DA5 de développer une pensée pour libérer leur création graphique à l'heure des réseaux et des données.
+          </p>
+          <p>
+            3 trimestres pour aborder 3 sujets : opportunités et limites des outils pour la création, documentation d’une démarche créative, démarche d’auteur et élaboration d'un projet professionnel.
         </p>
         <p>
-          3 trimestres pour aborder 3 sujets : opportunités et limites des outils pour la création, documentation d’une démarche créative, démarche d’auteur et élaboration d'un projet professionnel.
-      </p>
-      <p>
-        <span id="nbr_prjts"></span> projets qui abordent le transmédia, l'édition print et numérique, la représentation de données, les principes génératifs, le cinéma, la narration, l'interaction et le packaging : <span id="allProjects"></span>
-      </p>
-      <p>
-        <a href="http://laboratoire-graphique.github.io">laboratoire-graphique.github.io</a>
-      </p>
-    </div>
-    <footer>Pendant 1 an, le laboratoire graphique a été animé par Bernard Baissait, Pierre-Yvon Carnoy et Christophe Salaün. Le laboratoire graphique a reçu les visites et interventions de <a href="http://www.aymericdutheil.fr/">Aymeric Dutheil</a>, <a href="http://louiseveillard.com/">Louis Eveillard</a> et <a href="http://www.raphaelbastide.com/">Raphaël Bastide</a>. Le laboratoire graphique est aujourd'hui fermé mais vous pouvez nous contacter à l'adresse <a href="mailto:laboratoire-graphique@penninghen.fr">laboratoire-graphique@penninghen.fr</a>. Fonts: <a href="http://overpassfont.org/">Overpass</a> , <a href="https://github.com/clauseggers/Inknut-Antiqua">Inknut Antiqua</a> et <a href="https://github.com/raphaelbastide/Whois-mono">Whois mono</a> . Pour jouer avec le site et l'affiche: <a href="https://github.com/laboratoire-graphique/laboratoire-graphique.github.io">github.com/laboratoire-graphique/laboratoire-graphique.github.io</a></footer>
+          <span id="nbr_prjts"></span> projets qui abordent le transmédia, l'édition print et numérique, la représentation de données, les principes génératifs, le cinéma, la narration, l'interaction et le packaging : <span id="allProjects"></span>
+        </p>
+        <p>
+          <a href="http://laboratoire-graphique.github.io">laboratoire-graphique.github.io</a>
+        </p>
+      </div>
+    </header>
+
+    <div id="random-projects"></div>
+    <div id="detail"></div>
+
+    <footer>Pendant 1 an, le laboratoire graphique a été animé par Bernard Baissait, Pierre-Yvon Carnoy et Christophe Salaün. Le laboratoire graphique a reçu les visites et interventions de <a href="http://www.aymericdutheil.fr/">Aymeric Dutheil</a>, <a href="http://louiseveillard.com/">Louis Eveillard</a> et <a href="http://www.raphaelbastide.com/">Raphaël Bastide</a>. Le laboratoire graphique est aujourd'hui fermé mais vous pouvez nous contacter à l'adresse <a href="mailto:laboratoire-graphique@penninghen.fr">laboratoire-graphique@penninghen.fr</a>. Fonts: <a href="http://overpassfont.org/">Overpass</a> et Times New Roman. Pour jouer avec le site et l'affiche: <a href="https://github.com/laboratoire-graphique/laboratoire-graphique.github.io">github.com/laboratoire-graphique/laboratoire-graphique.github.io</a></footer>
 
 
     <script type="text/javascript">
@@ -46,9 +51,6 @@
     }
     return prjct_array;
     }
-
-    var prjct_array = range(0, (projects.length - 1));
-
 // shuffle l'array précédent
     function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -59,32 +61,42 @@
     }
     return array;
     }
-
+// un array de projets aléatoires
+    var prjct_array = range(0, (projects.length - 1));
     rndm_prjct = (shuffleArray(prjct_array));
-
+// appel des auteurs
     function auteurs(x){
-      if (projects[rndm_prjct[x]].auteur2 == 0) return projects[rndm_prjct[x]].auteur1;
-      else if (projects[rndm_prjct[x]].auteur3 == 0) return projects[rndm_prjct[x]].auteur1 + ",<br>" + projects[rndm_prjct[x]].auteur2;
-      else return projects[rndm_prjct[x]].auteur1 + ",<br>" + projects[rndm_prjct[x]].auteur2 + ",<br>" + projects[rndm_prjct[x]].auteur3;
-
-
+      if (projects[x].auteur2 == 0) return projects[x].auteur1;
+      else if (projects[x].auteur3 == 0) return projects[x].auteur1 + ",<br>" + projects[x].auteur2;
+      else return projects[x].auteur1 + ",<br>" + projects[x].auteur2 + ",<br>" + projects[x].auteur3;
     }
 
 //Appel des 8 projets
 
     var  x = 0;
+    var xyz = "";
+
     while (x  <= 7) {
       y = 'projet-' + (x + 1) + '-txt';
       z = 'projet-' + (x + 1) + '-img';
 
+      xyz = xyz + "<section class='txt' id='" + y + "'><h2>" + projects[rndm_prjct[x]].nom + "</h2><h3>" + auteurs(rndm_prjct[x]) + "</h3><p>" + projects[rndm_prjct[x]].pitch + "</p></section><section class='img' id='" + z + "'><img src='projets/" + projects[rndm_prjct[x]].dossier + "/1.jpg' alt='" + projects[rndm_prjct[x]].nom + "' /><p>" + projects[rndm_prjct[x]].nom + "</p></section>";
 
-      document.writeln("<section class='txt' id='" + y + "'><h2>" + projects[rndm_prjct[x]].nom + "</h2><h3>" + auteurs(x) + "</h3><p>" + projects[rndm_prjct[x]].pitch + "</p></section><section class='img' id='" + z + "'><img src='projets/" + projects[rndm_prjct[x]].dossier + "/1.jpg' alt='" + projects[rndm_prjct[x]].nom + "' /><p>" + projects[rndm_prjct[x]].nom + "</p></section>");
       x = x + 1;
       }
 
-      prjts = projects[0].nom;
+      document.getElementById('random-projects').innerHTML = xyz;
+
+      function showDetail(x){
+        document.getElementById('detail').style.display = "block";
+        document.getElementById('detail').innerHTML = "<h2>" + projects[x].nom +"</h2><h3>" + auteurs(x) + "</h3><p>" + projects[x].pitch + "</p><img src='projets/" + projects[x].dossier + "/1.jpg' alt='" + projects[x].nom + "' />";
+        document.getElementById('random-projects').style.display = "none";
+      }
+
+      prjts = '<a href="#" onclick="showDetail(0);return false;" >' + projects[0].nom + '</a>';
       for (var i = 1; i < projects.length; i++) {
-      prjts = prjts + ", " + projects[i].nom;
+      prjts = prjts + ', <a href="#" onclick="showDetail(' + i + ');return false;">' + projects[i].nom + '</a>';
+
       }
 
       document.getElementById('allProjects').innerHTML = prjts + ".";
@@ -105,8 +117,8 @@
   }
   var  txt = 1;
   while (txt  <= 7) {
-    document.getElementById("projet-" + txt + "-txt").style.top = Math.floor(Math.random() * 700) + 'px';
-    document.getElementById("projet-" + (txt + 1) + "-txt").style.bottom = Math.floor(Math.random() * 700) + 'px';
+    document.getElementById("projet-" + txt + "-txt").style.top = Math.floor(Math.random() * 600) + 'px';
+    document.getElementById("projet-" + (txt + 1) + "-txt").style.bottom = Math.floor(Math.random() * 600) + 'px';
     txt = txt + 2;
   }
   </script>
