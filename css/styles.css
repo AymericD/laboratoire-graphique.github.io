@@ -1,7 +1,7 @@
 *{margin: 0; padding: 0;}
 body{font-family: "mono", serif; font-size: 12px; line-height: 18px; width: 1360px; margin: 20px auto; font-weight: 400;}
 h1, h2, h3, p{margin-bottom: 5px;}
-h1 {font-family: "Overpass", sans-serif;} 
+h1 {font-family: "Overpass", sans-serif;}
 h2, h3{font-family: "antikbold", sans-serif;}
 ul{list-style-type: none;}
 p{margin-bottom: 10px;}
@@ -9,14 +9,18 @@ a{text-decoration: none;}
 
 h1{ top:20px; text-transform: uppercase; font-size: 66px; line-height: 66px; position: absolute; left: 680px;}
 #description{position: absolute; font-size: 1.8em; line-height: 1.4em; background-color: white; width: 440px; left: 680px; top: 360px; font-family: "Overpass", sans-serif; font-weight: 700;}
+
 footer{font-size: 1.2em; line-height: 1.4em; position: absolute; left: 680px; bottom: 20px; background-color: white; width: 440px; font-family: "Overpass", sans-serif; font-weight: 700;}
 
-h2{font-weight: 700; font-size: 24px; line-height: 34px;}
+h2{font-weight: 700; font-size: 1.8em; line-height: 1.4em;}
 h3{font-weight: 700; font-size: 1.2em; line-height: 1.6em;}
+
+#random-projects{position: absolute; top: 0; left:0; width: 100%; height:100%; z-index: -10;}
+
 section{position: absolute;}
 
 section img{width: 100%; }
-section.img{z-index: -1000; background-color: none;}
+section.img{z-index: -1000; }
 section.txt{z-index: 1000; background-color: white; width: 214px; display: block; padding: 3px;}
 #projet-1-txt{left: 20px;}
 #projet-2-txt{left: 20px;}
@@ -27,6 +31,9 @@ section.txt{z-index: 1000; background-color: white; width: 214px; display: block
 #projet-7-txt{left: 1120px;}
 #projet-8-txt{left: 1120px;}
 
+
+#detail{padding:20px; display: none; font-size: 18px; line-height: 24px; background-color: white; position: absolute; z-index:10000; left: 0; top:700px; width:640px;}
+#detail img{width:80%;}
 
 @media screen {
   #page{position: relative; overflow: hidden;
@@ -39,7 +46,7 @@ section.txt{z-index: 1000; background-color: white; width: 214px; display: block
 @media print {
   @page {
     margin: 0cm;
-    size: A4;
+    /*size: A4;*/
     /* Quel format pour le traceur? */
   }
   #page{position: relative; overflow: hidden; width: 1360px; height: 1913px; overflow: hidden;}
